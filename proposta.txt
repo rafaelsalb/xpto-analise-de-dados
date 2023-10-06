@@ -1,0 +1,60 @@
+Descrição do trabalho
+
+O trabalho de AV2 usará o conteúdo que está sendo abordado na unidade do plano de ensino. Para ter sucesso nessa atividade, é essencial a organização, então comece escolhendo sua equipe e mãos à obra.
+
+Cenário
+
+Você foi contratado como cientista de dados pela prefeitura da cidade XPTO. A prefeitura por meio da coleta de dados de seus sistemas, possui alguns conjuntos de dados e gostaria de explorá-los para apoiar as tomadas de decisão do prefeito e seus secretários. A base de dados da prefeitura conta com dados sobre as áreas da Saúde (dados de cidadãos que tiverem dengue), Mobilidade (dados de cidadãos que andam de ônibus) e Educação (dados de cidadãos matriculados em escolas), essas informações estão em três  arquivos Excel (.csv). Como cientista de dados você deverá fazer:
+
+ 1) Relatório Educação: Informar nome, data de nascimento e id dos cidadãos de XPTO que frequentaram a escola, menos os cidadãos que tiveram dengue.
+
+ 2) Relatório Saúde: Informar nome, data de nascimento e data que tiveram dengue dos cidadãos de XPTO que frequentaram o posto de saúde, menos os cidadãos que não utilizam ônibus.
+
+3) Relatório Mobilidade: Informar nome, data de nascimento e linhas de ônibus dos cidadãos de XPTO que utilizaram o transporte público e não tiveram dengue.
+
+4) Relatório Educação e Saúde: Informar nome, data de nascimento, id e data que tiveram dengue dos cidadãos de XPTO que frequentaram a escola e tiveram dengue.
+
+5) Relatório Educação e Mobilidade: Informar nome, data de nascimento, id e linhas de ônibus dos cidadãos de XPTO que frequentaram a escola e utilizaram transporte público.
+
+6) Relatório Saúde e Mobilidade: Informar nome, data de nascimento, data que tiveram dengue e linhas de ônibus dos cidadãos de XPTO que frequentaram o posto de saúde e utilizaram transporte público.
+
+7) Relatório Saúde, Mobilidade e Educação: Informar nome, data de nascimento, data que tiveram dengue e linhas de ônibus  dos cidadãos de XPTO que frequentaram o posto de saúde, utilizaram transporte público e frequentaram a escola.
+
+8) Informar nome, data de nascimento, data que tiveram dengue dos cidadãos de XPTO que frequentaram o posto de saúde, mas não utilizaram transporte público.
+
+9) Informar nome, data de nascimento, data que tiveram dengue dos cidadãos de XPTO que frequentaram o posto de saúde, mas não frequentaram a escola.
+
+10) Informar nome, data de nascimento, data que tiveram dengue dos cidadãos de XPTO que frequentaram o posto de saúde, mas não frequentaram a escola, nem utilizaram transporte público.
+
+Os 10 relatórios devem ser entregues em formato Excel e o Diagrama de Venn presente em cada questão.
+
+Bom trabalho!
+
+Seguem as orientações Iniciais para a realização do trabalho da AV2:
+
+1. O trabalho deve ser realizado em equipes de até 4 pessoas;
+
+2. Estrutura da apresentação:
+
+Introdução
+
+Metodologia
+
+Resultados 
+
+Conclusão
+
+3. Critérios de avaliação
+
+3.1 Conhecimento científico do problema abordado;
+
+3.2 Metodologia científica;
+
+3.3 Clareza e objetividade;
+
+3.4 Ilustrações e complementos (Gráficos, tabelas, figuras, etc).
+Data:  A atividade deverá ser apresentada no dia 27/04
+
+Pontuação: 0,00 - 3,00
+
+Feedback: dia 07 de março faremos o feedback presencial desta atividade. Na ocasião, tirarei possíveis dúvidas, apresentarei pontos de melhoria, ouvirei sugestões de adequação e disponibilizarei as notas.

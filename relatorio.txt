@@ -1,0 +1,1 @@
+Devido às inconsistências entre alguns campos das bases de dados, não serão considerados: Nome da Mae, Nome do Pai, Data de Nascimento (nas bases de ônibus).
