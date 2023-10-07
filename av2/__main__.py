@@ -25,6 +25,7 @@ relatorios.append(relatorio1)
 print(f"Colunas do DataFrame resultante: {tuple(relatorio1['DataFrame'].columns)}")
 print(f"Número de alunos: {len(alunos)}, Número de dengues: {len(dengue)}")
 print(f"Número de alunos que não tiveram dengue: {len(relatorio1['DataFrame'])}")
+print()
 
 print(f"{'RELATÓRIO 2':-^80}")
 relatorio2 = gerar_relatorios.relatorio2(dengue, onibus)

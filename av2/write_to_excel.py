@@ -1,12 +1,20 @@
 import os
 from pathlib import Path
 import pandas as pd
+import sys
 
+base_path = str(Path(os.path.abspath(__file__)).resolve().parents[0])
 
 output_path = os.path.join(
-    str(Path(os.path.abspath(__file__)).resolve().parents[0]),
-    'output/excel'
+    base_path,
+    'output/excel' if sys.platform.startswith("linux") else 'output\\excel'
 )
+
+if not os.path.exists(output_path):
+    os.mkdir(
+        os.path.join(base_path, 'output')
+    )
+    os.mkdir(output_path)
 
 
 def write(input: pd.DataFrame, file_name: str, sheet_name: str):

@@ -7,3 +7,6 @@ share
 pyenv.cfg
 __pycache__
 output
+Scripts
+.vscode
+pyvenv.cfg
