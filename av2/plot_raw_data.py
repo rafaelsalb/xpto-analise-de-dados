@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 import map_dates as md
 import numpy as np
 import os
-import pandas as pd
 from pathlib import Path
 import sys
 
@@ -37,18 +36,22 @@ def hist_anos(src: callable, show_graph: bool = True, output_name: str = '') -> 
     
     fig, ax = plt.subplots()
 
-    ax.hist(anos, bins=20, edgecolor='black')
+    ax.hist(anos, bins=200, edgecolor='black')
     ax.set(
         mouseover=True,
-        xticks=np.arange(0, 10000, 500),
-        yticks=np.arange(0, 1501, 50),
+        xticks=np.arange(0, 10000, 100),
+        yticks=np.arange(0, 1051, 50),
         title="Distribuição de anos",
         xlabel='Ano',
         ylabel="Ocorrências do ano"
     )
     ax.tick_params(
         axis='x',
-        labelrotation=-45
+        labelrotation=-90
+    )
+    ax.margins(x=0)
+    plt.xticks(
+        fontsize=8
     )
 
     fig.savefig(
@@ -158,4 +161,3 @@ if __name__ == "__main__":
             hist_dias(alunos, False, 'alunos_dias.png')
             hist_dias(dengue, False, 'dengue_dias.png')
             hist_dias(onibus, False, 'onibus_dias.png')
-            
