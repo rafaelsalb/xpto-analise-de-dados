@@ -1,2 +1,10 @@
-# SCRIPT_PATH="/home/rafaelalb/dev/uni/res_prob_nat_dis/av2/av2/solve_all.sh";
-for i in $(seq 1 10); do python av2 "$i" -w; done
+python av2 1 -w &
+python av2 2 -w &
+python av2 3 -w &
+python av2 4 -w &
+python av2 5 -w &
+python av2 6 -w &
+python av2 7 -w &
+python av2 8 -w &
+python av2 9 -w &
+python av2 10 -w

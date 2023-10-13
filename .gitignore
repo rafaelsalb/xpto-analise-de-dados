@@ -10,3 +10,4 @@ output
 Scripts
 .vscode
 pyvenv.cfg
+.VSCodeCounter
