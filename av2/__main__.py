@@ -102,3 +102,15 @@ print()
 if '-w' in sys.argv:
     for relatorio in relatorios:
         write_to_excel.write(relatorio['DataFrame'], f'relatorio_equipe{equipe}.xlsx', sheet_name=relatorio['Nome'])
+if '-v' in sys.argv:
+    import venn
+    venn.venn1(equipe)
+    venn.venn2(equipe)
+    venn.venn3(equipe)
+    venn.venn4(equipe)
+    venn.venn5(equipe)
+    venn.venn6(equipe)
+    venn.venn7(equipe)
+    venn.venn8(equipe)
+    venn.venn9(equipe)
+    venn.venn10(equipe)
