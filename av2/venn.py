@@ -41,11 +41,12 @@ def venn1(equipe: int, show_graph: bool = False):
     plt.title('Diferença entre Alunos e Dengue')
     plt.savefig(
         os.path.join(
-            output_path, f'venn1-equipe{equipe}.png'
+            output_path, f'equipe{equipe}-relatorio1.png'
         )
     )
     if show_graph:
         plt.show()
+    plt.clf()
 
 def venn2(equipe: int, show_graph: bool = False):
     circles = plt_venn.venn2(
@@ -65,11 +66,12 @@ def venn2(equipe: int, show_graph: bool = False):
     plt.title('Intersecção entre Dengue e Ônibus')
     plt.savefig(
         os.path.join(
-            output_path, f'venn2-equipe{equipe}.png'
+            output_path, f'equipe{equipe}-relatorio2.png'
         )
     )
     if show_graph:
         plt.show()
+    plt.clf()
 
 def venn3(equipe: int, show_graph: bool = False):
     circles = plt_venn.venn2(
@@ -89,11 +91,12 @@ def venn3(equipe: int, show_graph: bool = False):
     plt.title('Diferença entre Ônibus e Dengue')
     plt.savefig(
         os.path.join(
-            output_path, f'venn3-equipe{equipe}.png'
+            output_path, f'equipe{equipe}-relatorio3.png'
         )
     )
     if show_graph:
         plt.show()
+    plt.clf()
 
 def venn4(equipe: int, show_graph: bool = False):
     circles = plt_venn.venn2(
@@ -113,11 +116,12 @@ def venn4(equipe: int, show_graph: bool = False):
     plt.title('Intersecção entre Alunos e Dengue')
     plt.savefig(
         os.path.join(
-            output_path, f'venn4-equipe{equipe}.png'
+            output_path, f'equipe{equipe}-relatorio4.png'
         )
     )
     if show_graph:
         plt.show()
+    plt.clf()
 
 def venn5(equipe: int, show_graph: bool = False):
     circles = plt_venn.venn2(
@@ -137,11 +141,12 @@ def venn5(equipe: int, show_graph: bool = False):
     plt.title('Intersecção entre Alunos e Ônibus')
     plt.savefig(
         os.path.join(
-            output_path, f'venn5-equipe{equipe}.png'
+            output_path, f'equipe{equipe}-relatorio4.png'
         )
     )
     if show_graph:
         plt.show()
+    plt.clf()
 
 def venn5(equipe: int, show_graph: bool = False):
     circles = plt_venn.venn2(
@@ -161,11 +166,12 @@ def venn5(equipe: int, show_graph: bool = False):
     plt.title('Intersecção entre Alunos e Ônibus')
     plt.savefig(
         os.path.join(
-            output_path, f'venn5-equipe{equipe}.png'
+            output_path, f'equipe{equipe}-relatorio5.png'
         )
     )
     if show_graph:
         plt.show()
+    plt.clf()
 
 def venn6(equipe: int, show_graph: bool = False):
     circles = plt_venn.venn2(
@@ -185,11 +191,12 @@ def venn6(equipe: int, show_graph: bool = False):
     plt.title('Intersecção entre Dengue e Ônibus')
     plt.savefig(
         os.path.join(
-            output_path, f'venn6-equipe{equipe}.png'
+            output_path, f'equipe{equipe}-relatorio6.png'
         )
     )
     if show_graph:
         plt.show()
+    plt.clf()
 
 def venn7(equipe: int, show_graph: bool = False):
     circles = plt_venn.venn3(
@@ -211,11 +218,12 @@ def venn7(equipe: int, show_graph: bool = False):
     plt.title('Intersecção entre Alunos, Dengue e Ônibus')
     plt.savefig(
         os.path.join(
-            output_path, f'venn7-equipe{equipe}.png'
+            output_path, f'equipe{equipe}-relatorio7.png'
         )
     )
     if show_graph:
         plt.show()
+    plt.clf()
 
 def venn8(equipe: int, show_graph: bool = False):
     circles = plt_venn.venn2(
@@ -235,11 +243,12 @@ def venn8(equipe: int, show_graph: bool = False):
     plt.title('Diferença entre Dengue e Ônibus')
     plt.savefig(
         os.path.join(
-            output_path, f'venn8-equipe{equipe}.png'
+            output_path, f'equipe{equipe}-relatorio8.png'
         )
     )
     if show_graph:
         plt.show()
+    plt.clf()
 
 def venn9(equipe: int, show_graph: bool = False):
     circles = plt_venn.venn2(
@@ -259,11 +268,12 @@ def venn9(equipe: int, show_graph: bool = False):
     plt.title('Diferença entre Dengue e Alunos')
     plt.savefig(
         os.path.join(
-            output_path, f'venn9-equipe{equipe}.png'
+            output_path, f'equipe{equipe}-relatorio9.png'
         )
     )
     if show_graph:
         plt.show()
+    plt.clf()
 
 def venn10(equipe: int, show_graph: bool = False):
     circles = plt_venn.venn3(
@@ -285,11 +295,12 @@ def venn10(equipe: int, show_graph: bool = False):
     plt.title('Diferença entre Dengue, Alunos e Ônibus')
     plt.savefig(
         os.path.join(
-            output_path, f'venn10-equipe{equipe}.png'
+            output_path, f'equipe{equipe}-relatorio10.png'
         )
     )
     if show_graph:
         plt.show()
+    plt.clf()
 
 if __name__ == "__main__":
     fun = locals()[f'venn{sys.argv[1]}']
