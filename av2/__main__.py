@@ -1,3 +1,5 @@
+import os
+from pathlib import Path
 import get_dataframes
 import pandas as pd
 import gerar_relatorios
@@ -99,9 +101,6 @@ print(f"Número de pacientes: {len(dengue)}, Número de alunos: {len(alunos)}, N
 print(f"Número de pacientes que não frequentaram a escola nem usaram transporte público: {len(relatorio10['DataFrame'])}")
 print()
 
-if '-w' in sys.argv:
-    for relatorio in relatorios:
-        write_to_excel.write(relatorio['DataFrame'], f'relatorio_equipe{equipe}.xlsx', sheet_name=relatorio['Nome'])
 if '-v' in sys.argv:
     import venn
     venn.venn1(equipe)
@@ -114,3 +113,13 @@ if '-v' in sys.argv:
     venn.venn8(equipe)
     venn.venn9(equipe)
     venn.venn10(equipe)
+
+base_path = str(Path(os.path.abspath(__file__)).resolve().parents[0])
+venn_path = os.path.join(
+    base_path,
+    'output/venn' if sys.platform.startswith("linux") else 'output\\venn'
+)
+
+if '-w' in sys.argv:
+    for i, relatorio in enumerate(relatorios):
+        write_to_excel.write(relatorio['DataFrame'], f'relatorio_equipe{equipe}.xlsx', relatorio['Nome'], f'equipe{equipe}-relatorio{i + 1}.png')

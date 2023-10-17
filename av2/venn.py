@@ -23,6 +23,10 @@ if not os.path.exists(output_path):
         pass
     os.mkdir(output_path)
 
+def get_path():
+    global output_path
+    return output_path
+
 def venn1(equipe: int, show_graph: bool = False):
     circles = plt_venn.venn2(
         [
