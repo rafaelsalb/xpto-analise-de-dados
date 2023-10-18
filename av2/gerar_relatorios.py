@@ -47,41 +47,44 @@ def intersection(A: pd.DataFrame, B: pd.DataFrame, output_columns: tuple[str] = 
 def result(nome: str, DataFrame: pd.DataFrame) -> dict[str, pd.DataFrame]:
     return {'Nome': nome, 'DataFrame': DataFrame}
 
-def relatorio1(alunos: pd.DataFrame, dengue: pd.DataFrame, filter_dates: bool = False) -> dict[str, pd.DataFrame]:
+def relatorio1(alunos: pd.DataFrame, dengue: pd.DataFrame, filtrar: bool = False) -> dict[str, pd.DataFrame]:
     '''
     Diferença entre os DataFrames "alunos" e "dengue"
     O DataFrame resultante preserva apenas as colunas ID, Nome e Data de Nascimento.
     '''
     merged = diff(alunos, dengue, ("nome", "id", "data de nascimento"))
     merged = format_date(merged, "Data de Nascimento")
-    if filter_dates:
+    if filtrar:
         merged = filter_dates(merged, "Data de Nascimento")
+    merged = merged.drop_duplicates()
     return result('Relatório 1 - Educação', merged)
 
-def relatorio2(dengue: pd.DataFrame, onibus: pd.DataFrame, filter_dates: bool = False) -> pd.DataFrame:
+def relatorio2(dengue: pd.DataFrame, onibus: pd.DataFrame, filtrar: bool = False) -> pd.DataFrame:
     '''
     Intersecção entre os DataFrames "dengue" e "onibus"
     O DataFrame resultante preserva apenas as colunas Nome, Data de Nascimento e Data da Dengue.
     '''
     merged = intersection(dengue, onibus, ("nome", "data de Nascimento", "data da dengue"))
     merged = format_date(merged, "Data de Nascimento")
-    if filter_dates:
+    if filtrar:
         merged = filter_dates(merged, "Data de Nascimento")
         merged = filter_dates(merged, "Data da Dengue")
+    merged = merged.drop_duplicates()
     return result('Relatório 2 - Saúde', merged)
 
-def relatorio3(onibus: pd.DataFrame, dengue: pd.DataFrame, filter_dates: bool = False) -> pd.DataFrame:
+def relatorio3(onibus: pd.DataFrame, dengue: pd.DataFrame, filtrar: bool = False) -> pd.DataFrame:
     '''
     Diferença entre os DataFrames "onibus" e "dengue"
     O DataFrame resultante preserva apenas as colunas Nome, Data de Nascimento e Ônibus.
     '''
     merged = diff(onibus, dengue, ("nome", "data de nascimento", "ônibus"))
     merged = md.add_sep(merged)
-    if filter_dates:
+    if filtrar:
         merged = filter_dates(merged, "Data de Nascimento")
+    merged = merged.drop_duplicates()
     return result('Relatório 3 - Mobilidade', merged)
 
-def relatorio4(alunos: pd.DataFrame, dengue: pd.DataFrame, filter_dates: bool = False) -> pd.DataFrame:
+def relatorio4(alunos: pd.DataFrame, dengue: pd.DataFrame, filtrar: bool = False) -> pd.DataFrame:
     '''
     Intersecção entre os DataFrames "alunos" e "dengue"
     O DataFrame resultante preserva apenas as colunas ID, Nome, Data de Nascimento e Data da Dengue.
@@ -89,12 +92,13 @@ def relatorio4(alunos: pd.DataFrame, dengue: pd.DataFrame, filter_dates: bool = 
     merged = intersection(alunos, dengue, ("id", "nome", "data de nascimento", "data da dengue"))
     # Remover horários
     merged = format_date(merged, "Data de Nascimento")
-    if filter_dates:
+    if filtrar:
         merged = filter_dates(merged, "Data de Nascimento")
         merged = filter_dates(merged, "Data da Dengue")
+    merged = merged.drop_duplicates()
     return result('Relatório 4 - Educação e Saúde', merged)
 
-def relatorio5(alunos: pd.DataFrame, onibus: pd.DataFrame, filter_dates: bool = False) -> pd.DataFrame:
+def relatorio5(alunos: pd.DataFrame, onibus: pd.DataFrame, filtrar: bool = False) -> pd.DataFrame:
     '''
     Intersecção entre os DataFrames "alunos" e "onibus"
     O DataFrame resultante preserva apenas as colunas ID, Nome, Data de Nascimento e Ônibus.
@@ -102,23 +106,25 @@ def relatorio5(alunos: pd.DataFrame, onibus: pd.DataFrame, filter_dates: bool = 
     merged = intersection(alunos, onibus, ("id", "nome", "data de nascimento", "ônibus"))
     # Remover horários
     merged = format_date(merged, "Data de Nascimento")
-    if filter_dates:
+    if filtrar:
         merged = filter_dates(merged, "Data de Nascimento")
+    merged = merged.drop_duplicates()
     return result('Relatório 5 - Educação e Mobilidade', merged)
 
-def relatorio6(dengue: pd.DataFrame, onibus: pd.DataFrame, filter_dates: bool = False) -> pd.DataFrame:
+def relatorio6(dengue: pd.DataFrame, onibus: pd.DataFrame, filtrar: bool = False) -> pd.DataFrame:
     '''
     Intersecção entre os DataFrames "dengue" e "onibus"
     O DataFrame resultante preserva apenas as colunas Nome, Data de Nascimento, Data da Dengue e Ônibus.
     '''
     merged = intersection(dengue, onibus, ("nome", "data de nascimento", "data da dengue", "ônibus"))
     merged = format_date(merged, "Data da Dengue")
-    if filter_dates:
+    if filtrar:
         merged = filter_dates(merged, "Data de Nascimento")
         merged = filter_dates(merged, "Data da Dengue")
+    merged = merged.drop_duplicates()
     return result('Relatório 6 - Saúde e Mobilidade', merged)
 
-def relatorio7(alunos: pd.DataFrame, dengue: pd.DataFrame, onibus: pd.DataFrame, filter_dates: bool = False) -> pd.DataFrame:
+def relatorio7(alunos: pd.DataFrame, dengue: pd.DataFrame, onibus: pd.DataFrame, filtrar: bool = False) -> pd.DataFrame:
     '''
     Intersecção entre os DataFrames "alunos", "dengue" e "onibus"
     O DataFrame resultante preserva apenas as colunas Nome, Data de Nascimento, Data da Dengue e Ônibus.
@@ -127,12 +133,13 @@ def relatorio7(alunos: pd.DataFrame, dengue: pd.DataFrame, onibus: pd.DataFrame,
     merged = format_date(merged, "Data de Nascimento")
     merged = format_date(merged, "Data da Dengue")
     merged = intersection(merged, onibus, ("nome", "data de nascimento", "data da dengue", "ônibus"))
-    if filter_dates:
+    if filtrar:
         merged = filter_dates(merged, "Data de Nascimento")
         merged = filter_dates(merged, "Data da Dengue")
+    merged = merged.drop_duplicates()
     return result('Relatório 7 - Saúde, Mobilidade e Educação', merged)
 
-def relatorio8(dengue: pd.DataFrame, onibus: pd.DataFrame, filter_dates: bool = False) -> pd.DataFrame:
+def relatorio8(dengue: pd.DataFrame, onibus: pd.DataFrame, filtrar: bool = False) -> pd.DataFrame:
     '''
     Diferença entre os DataFrames "dengue" e "onibus"
     O DataFrame resultante preserva apenas as colunas Nome, Data de Nascimento e Data da Dengue.
@@ -140,12 +147,13 @@ def relatorio8(dengue: pd.DataFrame, onibus: pd.DataFrame, filter_dates: bool = 
     merged = diff(dengue, onibus, ("nome", "data de Nascimento", "data da dengue"))
     merged = format_date(merged, "Data de Nascimento")
     merged = format_date(merged, "Data da Dengue")
-    if filter_dates:
+    if filtrar:
         merged = filter_dates(merged, "Data de Nascimento")
         merged = filter_dates(merged, "Data da Dengue")
+    merged = merged.drop_duplicates()
     return result('Relatório 8 - Dengue sem Transporte Público', merged)
 
-def relatorio9(dengue: pd.DataFrame, alunos: pd.DataFrame, filter_dates: bool = False) -> pd.DataFrame:
+def relatorio9(dengue: pd.DataFrame, alunos: pd.DataFrame, filtrar: bool = False) -> pd.DataFrame:
     '''
     Diferença entre os DataFrames "dengue" e "alunos"
     O DataFrame resultante preserva apenas as colunas Nome, Data de Nascimento e Data da Dengue.
@@ -153,12 +161,13 @@ def relatorio9(dengue: pd.DataFrame, alunos: pd.DataFrame, filter_dates: bool = 
     merged = diff(dengue, alunos, ("nome", "data de Nascimento", "data da dengue"))
     merged = format_date(merged, "Data de Nascimento")
     merged = format_date(merged, "Data da Dengue")
-    if filter_dates:
+    if filtrar:
         merged = filter_dates(merged, "Data de Nascimento")
         merged = filter_dates(merged, "Data da Dengue")
+    merged = merged.drop_duplicates()
     return result('Relatório 9 - Dengue sem Educação', merged)
 
-def relatorio10(alunos: pd.DataFrame, dengue: pd.DataFrame, onibus: pd.DataFrame, filter_dates: bool = False) -> pd.DataFrame:
+def relatorio10(alunos: pd.DataFrame, dengue: pd.DataFrame, onibus: pd.DataFrame, filtrar: bool = False) -> pd.DataFrame:
     '''
     Diferença entre os DataFrames "dengue", "alunos", e depois "onibus
     O DataFrame resultante preserva apenas as colunas Nome, Data de Nascimento e Data da Dengue.
@@ -167,9 +176,10 @@ def relatorio10(alunos: pd.DataFrame, dengue: pd.DataFrame, onibus: pd.DataFrame
     merged = diff(merged, onibus, ("nome", "data de Nascimento", "data da dengue"))
     merged = format_date(merged, "Data de Nascimento")
     merged = format_date(merged, "Data da Dengue")
-    if filter_dates:
+    if filtrar:
         merged = filter_dates(merged, "Data de Nascimento")
         merged = filter_dates(merged, "Data da Dengue")
+    merged = merged.drop_duplicates()
     return result('Relatório 10 - Dengue sem Educação e Transporte Público', merged)
 
 if __name__ == "__main__":

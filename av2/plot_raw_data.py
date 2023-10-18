@@ -43,7 +43,8 @@ def hist_anos(src: callable, show_graph: bool = True, output_name: str = '') -> 
         yticks=np.arange(0, 1051, 50),
         title="Distribuição de anos",
         xlabel='Ano',
-        ylabel="Ocorrências do ano"
+        ylabel="Ocorrências do ano",
+        xlim=(0, 8000)
     )
     ax.tick_params(
         axis='x',
@@ -99,7 +100,7 @@ def hist_dias(src: callable, show_graph: bool = True, output_name: str = '') -> 
         data = src(i)
         data = format_date(data, "Data de Nascimento")
         data = md.add_sep(data)
-        curr_dias = list(map(lambda x: int(x.split('-')[1]), data["Data de Nascimento"].to_list()))
+        curr_dias = list(map(lambda x: int(x.split('-')[0]), data["Data de Nascimento"].to_list()))
         for j in curr_dias:
             dias.append(j)
     
