@@ -23,6 +23,7 @@ def format_date(df: pd.DataFrame, column_label: str) -> pd.DataFrame:
     return df
 
 def diff(A: pd.DataFrame, B: pd.DataFrame, output_columns: tuple[str] = ()) -> pd.DataFrame:
+    # merged = pd.merge(A, B, how='outer', on=['Nome', 'Data de Nascimento'], indicator=True, suffixes=['', '_y'])
     merged = pd.merge(A, B, how='outer', on=['Nome'], indicator=True, suffixes=['', '_y'])
     merged = merged.loc[lambda x: x['_merge'] == 'left_only']
     merged = merged.drop(
@@ -33,6 +34,7 @@ def diff(A: pd.DataFrame, B: pd.DataFrame, output_columns: tuple[str] = ()) -> p
     return merged
 
 def intersection(A: pd.DataFrame, B: pd.DataFrame, output_columns: tuple[str] = ()) -> pd.DataFrame:
+    # merged = pd.merge(A, B, how='outer', on=['Nome', 'Data de Nascimento'], indicator=True, suffixes=['', '_y'])
     merged = pd.merge(A, B, how='outer', on=['Nome'], indicator=True, suffixes=['', '_y'])
     merged = merged.loc[lambda x: x['_merge'] == 'both']
     merged = merged.drop(
